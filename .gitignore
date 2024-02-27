@@ -26,7 +26,6 @@ build.gradle
 gradlew
 gradlew.bat
 settings.gradle
-src/main/resources/application.properties
 
 ### NetBeans ###
 /nbproject/private/
