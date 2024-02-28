@@ -29,8 +29,8 @@ public class CurrencyController {
     @Autowired
     private CurrencyService currencyService;
 
-    //@Scheduled(cron = "0 0 18 * * *")
-    @GetMapping("/currency_data_today")
+    @Scheduled(cron = "0 0 18 * * *")
+    //@GetMapping("/currency_data_today")
     public ResponseEntity<String> fetchAndInsertCurrencyData(){
         List<Map<String,String>> list = currencyService.fetchCurrencyDataFromApi();
         Map<String,String> latestExchangeRate = list.get(list.size()-1);
