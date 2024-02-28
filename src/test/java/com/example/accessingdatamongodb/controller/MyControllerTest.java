@@ -39,6 +39,10 @@ public class MyControllerTest {
     @Mock
     private CurrencyService currencyService;
 
+    /**
+     * 目的是要分別call兩個service回傳的值是否與預期的值是否相同，並且call api，判斷回傳的HttpStatus是否為200
+     * @throws Exception
+     */
     @Test
     public void CurrencyController_FetchAndSearchCurrencyData_ReturnSuccess() throws Exception{
 
@@ -63,6 +67,10 @@ public class MyControllerTest {
                 .andExpect(status().isOk());
     }
 
+    /**
+     * 目的是要測試從API撈出的JSON資料沒有USD/NTD的Key, 然後回傳訊息"No USD and NTD dollar"
+     * @throws Exception
+     */
     @Test
     public void CurrencyController_FetchAndSearchCurrencyData_ReturnError() throws Exception {
 
@@ -80,6 +88,10 @@ public class MyControllerTest {
 
     }
 
+    /**
+     * 目的是要測試如果查詢的幣別非USD，則回傳Bad Request
+     * @throws Exception
+     */
     @Test
     public void CurrencyController_SearchCurrencyOtherThenUsd_ReturnBadRequest() throws Exception{
         LocalDate currentDate = LocalDate.now();
@@ -102,6 +114,10 @@ public class MyControllerTest {
                         .andExpect(status().isBadRequest());
     }
 
+    /**
+     * 目的是要測試如果輸入的日期區間不符合規定，則回傳Bad Request
+     * @throws Exception
+     */
     @Test
     public void CurrencyController_QueryInvalidDateRange_ReturnInValidDateRangeException() throws Exception{
         LocalDate currentDate = LocalDate.now();
@@ -124,6 +140,10 @@ public class MyControllerTest {
                 .andExpect(status().isBadRequest());
     }
 
+    /**
+     * 目的是要測試輸入日期區間符合規定，則回傳HttpStatus 200
+     * @throws Exception
+     */
     @Test
     public void CurrencyController_QueryValidDateRange_ReturnSuccess() throws Exception{
 
