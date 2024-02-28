@@ -10,10 +10,10 @@
 
 2. 如果輸入日期區間不符合需求，且搜尋幣別為美金，則拋出Exception。資料庫裡面有十筆資料，日期從2023/05/28至2024/02/28。
 
-**搜尋日期超過一年以前，則拋出錯誤**
+搜尋日期超過一年以前，則拋出錯誤
 ![日期錯誤](https://github.com/ChunPingYang/CathayOA_ChunPingYang_20240227/blob/main/screenshot/InvalidDate_QueryBeyondOneYearAgo_Error.png "搜尋日期超過一年以前")
 
-**搜尋日期為當天(2/28)，則拋出錯誤**
+搜尋日期為當天(2/28)，則拋出錯誤
 ![日期錯誤](https://github.com/ChunPingYang/CathayOA_ChunPingYang_20240227/blob/main/screenshot/InvalidDate_QueryByToday_Error.png "搜尋當天日期錯誤")
 
 3. 如果輸入日期區間符合需求，且搜尋幣別為美金，則回傳成功如需求所示。
